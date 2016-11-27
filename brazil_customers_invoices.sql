@@ -1,7 +1,8 @@
-Select count (Total) as "# of sales",
-	sum(Total) as "Total sales",
-	BillingCountry
-from Invoice
-group by BillingCountry
-Order by "Total sales" desc
-limit 5
+select C.CustomerId,
+		FirstName || " " || LastName as "FullName ", 
+		InvoiceId, 
+		InvoiceDate, 
+		BillingCountry
+from Customer as C
+Join Invoice as I  on I.CustomerId = C.CustomerId
+where Country = 'Brazil'
